@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MVC</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+<fieldset>
+	<legend>Carte du Restaurant</legend>
+	<a href=<?= $basePath ."/order"?>>Commander</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Menu</th>
+				<th>Prix</th>
+			</tr>
+		</thead>
+		<tbody>
+        <?php foreach($meals as $meal): ?>
+            <tr>
+                <td>
+                    <strong><?= $meal['Name']; ?></strong>
+                    <p><?= $meal['Description']; ?></p>
+                </td>
+                <td><strong><?= number_format($meal['SalePrice'], 2) ?></strong> €</td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+	</table>
+</fieldset>
+</body>
+</html>

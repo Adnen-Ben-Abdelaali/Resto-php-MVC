@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MVC</title>
+	<style>
+		table, th, td {
+			border: 1px solid black;
+		}
+	</style>
+</head>
+
+<body>
+<a href=<?= $basePath ."/meal" ?>>Ajouter un plat</a>
+<fieldset>
+	<legend>Historique des commandes</legend>
+	<table>
+		<thead>
+			<tr>
+				<th>Numéro Commande</th>
+				<th>Numéro User</th>
+				<th>Date Création</th>
+				<th>Date Succès</th>
+				<th>TVA</th>
+				<th>Montant TVA</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php foreach ($orders as $order): ?>
+			<tr>
+				<td>							
+					<?= $order['Id'] ?>
+				</td>
+				<td>
+					<?= $order['User_Id'] ?>
+				</td>
+				<td>
+					<?= $order['CreationTimestamp'] ?>
+				</td>
+				<td>
+					<?= $order['CompleteTimestamp'] ?>
+				</td>
+				<td>
+					<?= $order['TaxRate'] ?> %
+				</td>
+				<td>
+					<?= $order['TaxAmount'] ?> €
+				</td>
+				<td>
+					<?= $order['TotalAmount'] ?> €
+				</td>
+			</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+</fieldset>
+</body>
+</html>
